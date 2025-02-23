@@ -1,3 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System.Text.Json;
+using InfoVeriti.WebApi.Client;
 
-Console.WriteLine( "Hello, World!" );
+var config = Config.Load( "config.json" );
+
+

@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoVeriti.WebApi.Client", "InfoVeriti.WebApi.Client\InfoVeriti.WebApi.Client.csproj", "{7BE64696-12D3-4AA2-8997-CAD600519E09}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{8876C251-CD9B-4F34-9C7F-81100B0B5BFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{F7107DFF-FAC9-48B6-BF3A-ADC6637FE3B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoVeriti.WebApi.Contracts", "InfoVeriti.WebApi.Contracts\InfoVeriti.WebApi.Contracts.csproj", "{28EE1E5B-4595-4F60-8E6F-263AA1BE1E2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,13 @@ Global
 		{7BE64696-12D3-4AA2-8997-CAD600519E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BE64696-12D3-4AA2-8997-CAD600519E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BE64696-12D3-4AA2-8997-CAD600519E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28EE1E5B-4595-4F60-8E6F-263AA1BE1E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28EE1E5B-4595-4F60-8E6F-263AA1BE1E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28EE1E5B-4595-4F60-8E6F-263AA1BE1E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28EE1E5B-4595-4F60-8E6F-263AA1BE1E2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7BE64696-12D3-4AA2-8997-CAD600519E09} = {F7107DFF-FAC9-48B6-BF3A-ADC6637FE3B7}
+		{28EE1E5B-4595-4F60-8E6F-263AA1BE1E2E} = {8876C251-CD9B-4F34-9C7F-81100B0B5BFB}
 	EndGlobalSection
 EndGlobal
