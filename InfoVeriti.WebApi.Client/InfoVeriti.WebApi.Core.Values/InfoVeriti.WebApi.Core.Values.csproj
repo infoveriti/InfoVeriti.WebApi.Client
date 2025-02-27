@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\InfoVeriti.WebApi.Core.Abstracts\InfoVeriti.WebApi.Core.Abstracts.csproj" />
+      <ProjectReference Include="..\InfoVeriti.WebApi.Core.Exceptions\InfoVeriti.WebApi.Core.Exceptions.csproj" />
+    </ItemGroup>
+
+</Project>

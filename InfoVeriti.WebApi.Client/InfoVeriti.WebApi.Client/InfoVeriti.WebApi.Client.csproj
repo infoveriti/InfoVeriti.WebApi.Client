@@ -13,4 +13,15 @@
       </None>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\InfoVeriti.Libs.Network\InfoVeriti.Libs.Network.csproj" />
+      <ProjectReference Include="..\InfoVeriti.WebApi.Contracts\InfoVeriti.WebApi.Contracts.csproj" />
+      <ProjectReference Include="..\InfoVeriti.WebApi.Core.Values\InfoVeriti.WebApi.Core.Values.csproj" />
+      <ProjectReference Include="..\InfoVeriti.WebApi.Facade\InfoVeriti.WebApi.Facade.csproj" />
+    </ItemGroup>
+
 </Project>

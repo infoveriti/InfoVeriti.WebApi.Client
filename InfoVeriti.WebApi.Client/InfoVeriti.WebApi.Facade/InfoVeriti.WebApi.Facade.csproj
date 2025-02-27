@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\InfoVeriti.Libs.Network\InfoVeriti.Libs.Network.csproj" />
+        <ProjectReference Include="..\InfoVeriti.WebApi.Contracts\InfoVeriti.WebApi.Contracts.csproj"/>
+        <ProjectReference Include="..\InfoVeriti.WebApi.Core.Values\InfoVeriti.WebApi.Core.Values.csproj"/>
+        <ProjectReference Include="..\InfoVeriti.WebApi.Extensions\InfoVeriti.WebApi.Extensions.csproj" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.2"/>
+        <PackageReference Include="System.Reactive" Version="6.0.1"/>
+    </ItemGroup>
+
+</Project>

@@ -1,11 +1,11 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
-namespace InfoVeriti.WebApi.Client;
+namespace InfoVeriti.WebApi.Facade;
 
-internal record Config( string? DeviceId, string? Key, string? Url )
+public record Config( string? DeviceId, string? DeviceName, string? Key, string? Url )
 {
-	
-	internal static Config Load( string path )
+	public static Config Load( string path )
 	{
 		var config = JsonSerializer.Deserialize<Config>( File.ReadAllText( path ) );
 		
@@ -23,5 +23,7 @@ internal record Config( string? DeviceId, string? Key, string? Url )
 		
 		return config;
 	}
-	
+
+	[JsonIgnore]
+	public bool IsValid => !string.IsNullOrWhiteSpace( DeviceId ) && !string.IsNullOrWhiteSpace( DeviceName ) && !string.IsNullOrWhiteSpace( Key ) && !string.IsNullOrWhiteSpace( Url );
 }
