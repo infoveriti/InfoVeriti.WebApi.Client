@@ -3,6 +3,7 @@ using InfoVeriti.Libs.Network.Abstracts.WebApi;
 using InfoVeriti.WebApi.Contracts.Others;
 using InfoVeriti.WebApi.Core.Values.Time;
 using InfoVeriti.WebApi.Facade.Items;
+using InfoVeriti.WebApi.Facade.Requests;
 using Microsoft.Extensions.DependencyInjection;
 
 
@@ -12,7 +13,6 @@ namespace InfoVeriti.WebApi.Facade;
 public class InfoVeritiWebApiFacade
 {
 	private readonly IServiceProvider _serviceProvider;
-	private decimal _timeDifference = decimal.Zero;
 	
 	
 	private IApiClient ApiClient { get; }
@@ -34,7 +34,7 @@ public class InfoVeritiWebApiFacade
 
 	public InfoVeritiWebApiFacade SyncTimeWithApi()
 	{
-		_timeDifference = SyncTimeHelper.CreateInstance( ApiClient ).GetApiTimeDifference();
+		AuthRequestBuilder.TimeDifference = SyncTimeHelper.CreateInstance( ApiClient ).GetApiTimeDifference();
 		return this;
 	}
 	

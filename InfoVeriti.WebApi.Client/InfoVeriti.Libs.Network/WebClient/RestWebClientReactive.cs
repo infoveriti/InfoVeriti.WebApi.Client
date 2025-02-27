@@ -10,10 +10,10 @@ using InfoVeriti.Libs.Network.Exceptions;
 
 namespace InfoVeriti.Libs.Network.WebClient
 {
-    public class RestWebClientReactive : IWebClientReactive, IWithAuthenticationHeaderValue
+    public class RestWebClientReactive : IWebClientReactive
     {
-        
-        private AuthenticationHeaderValue? _authenticationHeaderValue;
+        private readonly IRequestBuilder _requestBuilder;
+
 
         internal IWebClientInterceptor Interceptor { get; }
 
@@ -51,8 +51,9 @@ namespace InfoVeriti.Libs.Network.WebClient
         }
 
 
-        public RestWebClientReactive(IJsonOptions jsonOptions, IHttpClient httpClient, IWebClientInterceptor interceptor  )
+        public RestWebClientReactive(IJsonOptions jsonOptions, IHttpClient httpClient, IRequestBuilder requestBuilder, IWebClientInterceptor interceptor  )
         {
+            _requestBuilder = requestBuilder ?? throw new ArgumentNullException( nameof( requestBuilder ) );
             JsonOptions = jsonOptions ?? throw new ArgumentNullException( nameof( jsonOptions ) );
             HttpClient = httpClient ?? throw new ArgumentNullException( nameof( httpClient ) );
             Interceptor = interceptor ?? throw new ArgumentNullException( nameof( interceptor ) );
@@ -138,14 +139,6 @@ namespace InfoVeriti.Libs.Network.WebClient
 
 
 
-        public void AddAuthenticationHeaderValue( string schema, string? value )
-        {
-            if ( string.IsNullOrEmpty( schema ) || value is null )
-                _authenticationHeaderValue = null;
-            else
-                _authenticationHeaderValue = new AuthenticationHeaderValue( schema, value );
-        }
-
 
         #region help funcs
 
@@ -160,10 +153,8 @@ namespace InfoVeriti.Libs.Network.WebClient
             Exception? ex = null;
             var result = new T();
             string? bodyText = null;
-            var request = new HttpRequestMessage( method, Url );
-            if (_authenticationHeaderValue!=null)
-                request.Headers.Authorization = _authenticationHeaderValue;
-            
+            var request = _requestBuilder.BuildRequest(new HttpRequestMessage( method, Url ));
+
             if ( Body != null )
             {
                 var isString = (Body is string);

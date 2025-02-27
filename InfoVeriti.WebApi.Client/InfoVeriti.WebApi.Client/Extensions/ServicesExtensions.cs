@@ -12,6 +12,7 @@ using InfoVeriti.WebApi.Core.Values.Time;
 using InfoVeriti.WebApi.Facade;
 using InfoVeriti.WebApi.Facade.Abstracts;
 using InfoVeriti.WebApi.Facade.Data;
+using InfoVeriti.WebApi.Facade.Requests;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace InfoVeriti.WebApi.Client.Extensions;
@@ -30,7 +31,8 @@ internal static class ServicesExtensions
 	public static IServiceCollection AddHelpers(this IServiceCollection services)
 	{
 		return services
-			.AddSingleton<IAuthStore>((s) => new AuthStore())			
+			.AddSingleton<IAuthStore>((s) => new AuthStore())
+			.AddSingleton<IRequestBuilder, AuthRequestBuilder>()
 			.AddTransient<IHttpClient>((s) => new HttpClientWrapper( new HttpClient() ))
 			.AddSingleton<IApiClient>((s) => new ApiRestClient( s.GetRequiredService<Config>().Url ?? throw new ArgumentNullException($"{nameof(Config)}.{nameof(Config.Url)}"), s.GetRequiredService<IJsonOptions>(),  s.GetRequiredService<IHttpClient>() ))
 			;

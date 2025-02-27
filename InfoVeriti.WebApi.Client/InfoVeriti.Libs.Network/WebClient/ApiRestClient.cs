@@ -15,7 +15,7 @@ namespace InfoVeriti.Libs.Network.WebClient
             set => _apiUrl = value;
         }
 
-        public ApiRestClient( Uri apiUrl, IJsonOptions jsonOptions, IHttpClient httpClient ) : base( jsonOptions, httpClient, new TransparentInterceptor() )
+        public ApiRestClient( Uri apiUrl, IJsonOptions jsonOptions, IHttpClient httpClient ) : base( jsonOptions, httpClient, new TransparentRequestBuilder(), new TransparentInterceptor() )
         {
             _apiUrl = apiUrl ?? throw new ArgumentNullException( nameof( apiUrl ) );
         }
