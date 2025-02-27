@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using System.Net.Http.Headers;
 using InfoVeriti.Libs.Network.Abstracts.HttpClient;
 using InfoVeriti.Libs.Network.Abstracts.WebApi;
 using InfoVeriti.Libs.Network.Abstracts.WebClient;
